@@ -1,5 +1,6 @@
 package com.bean;
 
+import java.io.InputStream;
 import java.sql.Date;
 
 public class Post {
@@ -9,7 +10,7 @@ public class Post {
 	private int cat_id;
 	private int user_id;
 	private Date postedDate; 
-	
+	private InputStream myFile;
 	public Post() {
 		super();
 	}
@@ -90,6 +91,8 @@ public class Post {
 	public Date getPostedDate() {
 		return postedDate;
 	}
+
+
 	public void setPostedDate(Date date) {
 		this.postedDate = date;
 		
@@ -97,7 +100,17 @@ public class Post {
 
 
 
+	public InputStream getMyFile() {
+		return myFile;
+	}
 
-	
+
+
+	public void setMyFile(InputStream myFile) {
+		this.myFile = myFile;
+	}
+
+
+
 	
 }

@@ -23,13 +23,14 @@ public class PostDaoImplementation implements PostDao {
 
 		try {
 			con = connectionFactory.getConnection();
-			PreparedStatement statement = con.prepareStatement("insert into posts(post_title,post_description,user_id,cat_id,post_pic) values(?,?,?,?,?)");
+			PreparedStatement statement = con.prepareStatement("insert into posts(post_title,post_description,user_id,cat_id,post_pic,photos) values(?,?,?,?,?,?)");
 			statement.setString(1, post.getPostTitle());
 			statement.setString(2, post.getPostDescription());
 			statement.setInt(3,post.getUser_id());
 			statement.setInt(4, post.getCat_id());
 			statement.setString(5, post.getPostImage());
-			System.out.println("userid"+ post.getUser_id());
+			statement.setBlob(6, post.getMyFile());
+			System.out.println("post inserted successully....!"+post.getMyFile());
 			int i = statement.executeUpdate();
 			
 			if(i==1) {

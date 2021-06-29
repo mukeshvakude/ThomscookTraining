@@ -3,7 +3,7 @@ package com.controller.post;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.io.InputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -22,7 +22,7 @@ import com.helper.HelperFile;
 import com.services.PostServices;
 import com.services.PostServicesImplementation;
 
-@MultipartConfig
+@MultipartConfig(maxFileSize = 16177215) // upload file's size up to 16MB)
 public class AddPost extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	PostDaoImplementation postdao = new PostDaoImplementation();
@@ -38,14 +38,17 @@ public class AddPost extends HttpServlet {
 			int cat_id =Integer.parseInt( request.getParameter("catId"));
 			Part postImage = request.getPart("postImage"); 
 			User user = (User) session.getAttribute("user");
-//			System.out.println("user is "+user);
+
 			int user_id = user.getId();
+			InputStream myFile = null; // input stream of the upload file
+			// obtains input stream of the upload file
+			myFile = postImage.getInputStream();
+			
 			Post post = new Post(postTitle, postDescription, postImage.getSubmittedFileName(), cat_id, user_id);
-			String path = "D:\\JavaWorkspace\\TODO_CRUD_Application\\WebContent\\PostFiles"+File.separator+ postImage.getSubmittedFileName();
-			HelperFile.saveFile(postImage.getInputStream(), path);
-//			System.out.println(path);
+			post.setMyFile(myFile);
 			if(service.addPost(post)) {
-				//System.out.println(path);
+				String path = "D:\\JavaWorkspace\\TODO_CRUD_Application\\WebContent\\PostFiles"+File.separator+ postImage.getSubmittedFileName();
+				HelperFile.saveFile(postImage.getInputStream(), path);
 				response.getWriter().println("done");
 			}else {
 				response.getWriter().println("not inserted");
