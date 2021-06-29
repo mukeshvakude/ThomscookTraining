@@ -9,7 +9,7 @@ public class Post {
 	private int cat_id;
 	private int user_id;
 	private Date postedDate; 
-	int isLike ,isDislike;
+	
 	public Post() {
 		super();
 	}
@@ -90,19 +90,6 @@ public class Post {
 	public Date getPostedDate() {
 		return postedDate;
 	}
-
-	public int getIsLike() {
-		return isLike;
-	}
-
-
-
-	public void setIsLike(int isLike) {
-		this.isLike = isLike;
-	}
-
-
-
 	public void setPostedDate(Date date) {
 		this.postedDate = date;
 		
@@ -110,16 +97,7 @@ public class Post {
 
 
 
-	public int getIsDislike() {
-		return isDislike;
-	}
 
-
-
-	public void setIsDislike(int isDislike) {
-		this.isDislike = isDislike;
-	}
-	
 	
 	
 }

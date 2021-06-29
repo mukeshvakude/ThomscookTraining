@@ -59,8 +59,6 @@ public class PostDaoImplementation implements PostDao {
 				post.setPostImage(rs.getString(5));
 				post.setUser_id(rs.getInt(6));
 				post.setCat_id(rs.getInt(7));
-				post.setIsLike(rs.getInt(8));
-				post.setIsDislike(rs.getInt(9));
 				posts.add(post);
 			}
 			return posts;
@@ -91,8 +89,6 @@ public class PostDaoImplementation implements PostDao {
 				post.setPostImage(rs.getString(5));
 				post.setUser_id(rs.getInt(6));
 				post.setCat_id(rs.getInt(7));
-				post.setIsLike(rs.getInt(8));
-				post.setIsDislike(rs.getInt(9));
 				posts.add(post);
 			}
 			return posts;
