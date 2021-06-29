@@ -16,5 +16,11 @@
 	<classpathentry kind="lib" path="D:/servlet/apache-tomcat-9.0.46/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="D:/servlet/apache-tomcat-9.0.46/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.24.jar"/>
+	<classpathentry kind="lib" path="D:/software/jackson-annotations-2.7.0-rc4-20160106.061927-1.jar"/>
+	<classpathentry kind="lib" path="D:/software/jackson-core-2.7.0-rc4-20160106.062135-1.jar"/>
+	<classpathentry kind="lib" path="D:/software/jackson-core-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="D:/software/jackson-databind-2.7.0-rc4-20160109.222726-11.jar"/>
+	<classpathentry kind="lib" path="D:/software/jackson-mapper-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="D:/software/org.json.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
