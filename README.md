@@ -25,6 +25,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 2) likededisliked
+
 CREATE TABLE `likededisliked` (
   `like_id` int NOT NULL AUTO_INCREMENT,
   `post_id` int DEFAULT NULL,
@@ -37,45 +38,50 @@ CREATE TABLE `likededisliked` (
   CONSTRAINT `post_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `user_id2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
 3) posts
 
-CREATE TABLE `posts` (
-  `post_id` int NOT NULL AUTO_INCREMENT,
-  `post_title` varchar(45) DEFAULT NULL,
-  `post_description` text,
-  `posted_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `post_pic` varchar(45) DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
-  `cat_id` int DEFAULT NULL,
-  `photos` mediumblob,
-  PRIMARY KEY (`post_id`),
-  KEY `user_id_idx` (`user_id`),
-  KEY `user_id1_idx` (`user_id`),
-  KEY `cat_id_idx` (`cat_id`),
-  CONSTRAINT `cat_id` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`cat_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-4 )todos
+      CREATE TABLE `posts` (
+        `post_id` int NOT NULL AUTO_INCREMENT,
+        `post_title` varchar(45) DEFAULT NULL,
+        `post_description` text,
+        `posted_date` datetime DEFAULT CURRENT_TIMESTAMP,
+        `post_pic` varchar(45) DEFAULT NULL,
+        `user_id` int DEFAULT NULL,
+        `cat_id` int DEFAULT NULL,
+        `photos` mediumblob,
+        PRIMARY KEY (`post_id`),
+        KEY `user_id_idx` (`user_id`),
+        KEY `user_id1_idx` (`user_id`),
+        KEY `cat_id_idx` (`cat_id`),
+        CONSTRAINT `cat_id` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`cat_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+        CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+      ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-CREATE TABLE `todos` (
-  `todo_id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(45) DEFAULT NULL,
-  `description` varchar(45) DEFAULT NULL,
-  `target_date` datetime DEFAULT NULL,
-  `status` tinyint DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
-  PRIMARY KEY (`todo_id`),
-  KEY `user_id_idx` (`user_id`),
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+4)todos
+
+
+    CREATE TABLE `todos` (
+      `todo_id` int NOT NULL AUTO_INCREMENT,
+      `title` varchar(45) DEFAULT NULL,
+      `description` varchar(45) DEFAULT NULL,
+      `target_date` datetime DEFAULT NULL,
+      `status` tinyint DEFAULT NULL,
+      `user_id` int DEFAULT NULL,
+      PRIMARY KEY (`todo_id`),
+      KEY `user_id_idx` (`user_id`),
+      CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+    ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
 5) users
 
-CREATE TABLE `users` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `password` varchar(45) NOT NULL,
-  `mobile_number` varchar(45) CHARACTER SET armscii8 COLLATE armscii8_general_ci DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+    CREATE TABLE `users` (
+      `user_id` int NOT NULL AUTO_INCREMENT,
+      `username` varchar(45) NOT NULL,
+      `email` varchar(45) DEFAULT NULL,
+      `password` varchar(45) NOT NULL,
+      `mobile_number` varchar(45) CHARACTER SET armscii8 COLLATE armscii8_general_ci DEFAULT NULL,
+      PRIMARY KEY (`user_id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
